@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uday Chahal — Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Uday Chahal — Data Science & AI student at SRM IST: generative AI, machine learning and data analytics projects." />
+  <!-- Link previews (LinkedIn, WhatsApp, X…) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uday2611.github.io/" />
+  <meta property="og:title" content="Uday Chahal — Data Science & AI Portfolio" />
+  <meta property="og:description"
+    content="B.Tech CSE (Data Science) at SRM IST · AWS & Oracle certified · Generative AI, ML and data analytics projects." />
+  <meta property="og:image" content="https://uday2611.github.io/images/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://uday2611.github.io/images/og-preview.png" />
+  <link rel="canonical" href="https://uday2611.github.io/" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308080a'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' fill='%23c8f560' text-anchor='middle'%3EUC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="is-loading">
+
+  <!-- Loader: light screen, scrolling words, black "LOADING %" pill -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-top">
+      <span class="loader-logo" id="loaderLogo">UC</span>
+      <span class="loader-eq"><i></i><i></i><i></i><i></i></span>
+    </div>
+    <div class="loader-marquee">
+      <div class="loader-marquee-track" id="loaderMarquee"></div>
+    </div>
+    <div class="loader-pill" id="loaderPill">
+      <div class="loader-pill-inner">
+        <span>Loading</span>
+        <span class="loader-num"><b id="loaderNum">0</b>%<i class="caret"></i></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav-logo" id="navLogo" data-hover>UC</a>
+    <a href="#contact" class="nav-email" id="navEmail" data-hover></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" data-hover>About</a>
+      <a href="#work" data-hover>Work</a>
+      <a href="#contact" data-hover>Contact</a>
+      <a href="#" class="nav-resume" id="navResume" target="_blank" rel="noopener" data-hover>Resume ↗</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><i></i><i></i></button>
+  </header>
+
+  <!-- Social rail -->
+  <aside class="social-rail" id="socialRail"></aside>
+  <a class="resume-link" id="resumeLink" target="_blank" rel="noopener" data-hover>Resume <span>↗</span></a>
+
+  <main>
+    <!-- Hero: name left · 3D orb centre · roles right -->
+    <section class="hero" id="home">
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-name">
+        <p class="hero-hello">Hello! I'm</p>
+        <h1>
+          <span class="line"><span id="heroFirst">UDAY</span></span>
+          <span class="line"><span id="heroLast">CHAHAL</span></span>
+        </h1>
+        <p class="hero-loc mono" id="heroLocation"></p>
+      </div>
+      <div class="hero-roles">
+        <p class="hero-hello">A Creative</p>
+        <div class="role-swap" id="roleSwap"></div>
+      </div>
+      <a href="#about" class="scroll-hint mono" data-hover>Scroll <span>↓</span></a>
+    </section>
+
+    <!-- About -->
+    <section class="about section" id="about">
+      <div class="section-label mono">About me</div>
+      <p class="about-text" id="aboutText"></p>
+      <div class="about-stats" id="aboutStats"></div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <!-- What I do -->
+    <section class="services section" id="services">
+      <h2 class="services-title"><span>WHAT</span><span>I <em>DO</em></span></h2>
+      <div class="services-list" id="servicesList"></div>
+    </section>
+
+    <!-- Career -->
+    <section class="career section" id="career">
+      <h2 class="big-title">Education <em>&amp;</em><br />certifications</h2>
+      <div class="timeline" id="timeline">
+        <div class="timeline-line"><i id="timelineProgress"></i></div>
+      </div>
+    </section>
+
+    <!-- Work slider -->
+    <section class="work section" id="work">
+      <h2 class="big-title">My <em>Work</em></h2>
+      <div class="work-slider" id="workSlider">
+        <button class="work-arrow prev" id="workPrev" aria-label="Previous project" data-hover>←</button>
+        <div class="work-viewport">
+          <div class="work-track" id="workTrack"></div>
+        </div>
+        <button class="work-arrow next" id="workNext" aria-label="Next project" data-hover>→</button>
+      </div>
+      <div class="work-dots" id="workDots" role="tablist" aria-label="Projects"></div>
+    </section>
+
+    <!-- Tech stack -->
+    <section class="stack section" id="stack">
+      <div class="stack-head">
+        <h2 class="big-title">My <em>tech</em> stack</h2>
+        <p class="mono stack-hint">Move your cursor through it ↘</p>
+      </div>
+      <canvas id="stackCanvas" class="stack-canvas"></canvas>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact section" id="contact">
+      <div class="section-label mono">Contact</div>
+      <h2 class="contact-title">
+        Let's build<br />something <em>great.</em>
+      </h2>
+      <a href="#" class="contact-mail" id="contactMail" data-hover></a>
+      <div class="contact-grid" id="contactGrid"></div>
+      <footer class="footer">
+        <span class="mono">© <span id="year"></span> <span id="footName">Uday Chahal</span></span>
+        <span class="mono">Designed &amp; developed by <span id="footName2">Uday Chahal</span></span>
+        <a href="#home" class="mono" data-hover>Back to top ↑</a>
+      </footer>
+      <p class="credit mono">Layout inspired by <a href="https://github.com/MoncyDev/Portfolio-Website" target="_blank"
+          rel="noopener">Moncy Yohannan's portfolio</a></p>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
